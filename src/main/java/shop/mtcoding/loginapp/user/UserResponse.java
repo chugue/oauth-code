@@ -8,6 +8,19 @@ import java.sql.Timestamp;
 public class UserResponse {
 
     @Data
+    public static class NaverUserDTO {
+        private String resultcode;
+        private String message;
+        private Response response;
+
+        @Data
+        class Response{
+            private String id;
+            private String email;
+        }
+    }
+
+    @Data
     public static class NaverTokenDTO {
         @JsonProperty("access_token")
         private String accessToken;
@@ -50,16 +63,5 @@ public class UserResponse {
         }
     }
 
-    @Data
-    public static class NaverUserDTO {
-        private String resultcode;
-        private String message;
-        private Response response;
 
-        @Data
-        class Response{
-            private String id;
-            private String email;
-        }
-    }
 }
